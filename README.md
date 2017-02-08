@@ -14,6 +14,13 @@ Set:
 
 	PasswordAuthentication no
 
+Restart SSH service:
+
+	service ssh restart
+
+
+
+
 Configure git:
 
 	$ git config --global user.name "John Doe"
