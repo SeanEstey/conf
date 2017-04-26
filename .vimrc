@@ -32,4 +32,4 @@ au BufNewFile,BufRead *.html
     \ set shiftwidth=2 |
 
 highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/                                                                                                                                                                                                                                                                          1,1           All
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
