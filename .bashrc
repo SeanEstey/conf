@@ -78,6 +78,3 @@ alias lf='ls -l --group-directories-first --ignore=*.pyc'
 function cs() {
   cd "$@" && lf
 }
-
-
-                                                                                                                                                                                                                                                                                                            10,1          Top
