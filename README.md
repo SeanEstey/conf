@@ -1,9 +1,12 @@
 # Setup Instructions
 
+#### Install packages
+
+`apt-get install git, tmux`
+
 #### Setup git if not already installed
 
 ```
-apt-get install git
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
@@ -28,14 +31,14 @@ Restart SSH service:
 
 `service ssh restart`
 
-#### Setup .bashrc and .vimrc
+#### Config vim/bash/tmux
 
 ```
-cp ./.bashrc ~/
-cp ./.vimrc ~/
+cp ./{.bashrc,.vimrc,.tmux.conf} ~/
 source ~/.bashrc
-vim`
+vim
 :so ~/.vimrc
+tmux source-file ~/.tmux.conf
 ```
 
 #### Set system time to local:
