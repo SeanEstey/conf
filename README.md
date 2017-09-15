@@ -1,27 +1,39 @@
-Set system time to local:
+# Setup Instructions
 
-	$ sudo dpkg-reconfigure tzdata
+#### Setup git if not already installed
 
-Add pubkeys for any machines requiring access to ~/.ssh.authorized_keys:
+	`apt-get install git`
+	`git config --global user.name "John Doe"`
+	`git config --global user.email johndoe@example.com`
 
-	$ scp ~/.ssh/authorized_keys root@host:~/.ssh/
+#### Set-up SSH access
+
+Copy pubkey from remote machine. On remote machine terminal:
+
+	`scp ~/.ssh/mykey.pub root@hostname:~/.ssh/`
+
+On local machine, open the transferred ~/.ssh/mykey.pub file in vim, copy key to ~/.ssh/authorized_keys
 
 Remove password authentication for SSH:
 
-	$ vim /etc/ssh/sshd_config
+	`vim /etc/ssh/sshd_config`
 
 Set:
 
-	PasswordAuthentication no
+	`PasswordAuthentication no`
 
 Restart SSH service:
 
-	service ssh restart
+	`service ssh restart`
 
+#### Setup .bashrc and .vimrc
 
+	`cp ./.bashrc ~/`
+	`cp ./.vimrc ~/`
+	`source ~/.bashrc`
+	`vim`
+	`:so ~/.vimrc`
 
+#### Set system time to local:
 
-Configure git:
-
-	$ git config --global user.name "John Doe"
-	$ git config --global user.email johndoe@example.com
+	`sudo dpkg-reconfigure tzdata`
