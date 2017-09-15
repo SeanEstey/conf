@@ -1,8 +1,18 @@
 # Setup Instructions
 
+#### Update system
+
+```
+apt-get update
+sudo dpkg-reconfigure tzdata
+```
+
 #### Install packages
 
-`apt-get install git tmux`
+```
+apt-get update
+apt-get install git tmux
+```
 
 #### Setup git if not already installed
 
@@ -40,7 +50,3 @@ vim
 :so ~/.vimrc
 tmux source-file ~/.tmux.conf
 ```
-
-#### Set system time to local:
-
-`sudo dpkg-reconfigure tzdata`
