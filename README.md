@@ -2,7 +2,7 @@
 
 #### Install packages
 
-`apt-get install git, tmux`
+`apt-get install git tmux`
 
 #### Setup git if not already installed
 
