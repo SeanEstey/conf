@@ -1,0 +1,12 @@
+# ssh config, goes in ~/.ssh
+
+Host bravo
+  HostName bravoweb.ca
+  IdentityFile ~/.ssh/seanimacpro
+  User root
+
+Host simbot
+  HostName 45.79.176.125
+  IdentityFile ~/.ssh/seanimacpro
+  User root
+	
