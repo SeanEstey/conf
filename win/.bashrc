@@ -60,7 +60,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -alFCauto --group-directories-first --ignore=*.pyc'
+    alias ls='ls -alh --group-directories-first --color=auto'
 fi
 
 function cs() {
