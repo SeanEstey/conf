@@ -38,3 +38,5 @@ function prompt {
 
 prompt
 
+CFLAGS="-I$(brew --prefix openssl)/include"
+LDFLAGS="-L$(brew --prefix openssl)/lib"
