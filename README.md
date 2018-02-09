@@ -31,13 +31,6 @@ vim
 tmux source-file ~/.tmux.conf
 ```
 
-#### Config Bash & Vim
-
-Copy .bash_profile, .bashrc, and .vimrc from /ubuntu in repository root to home (~) directory.
-
-Execute bash config:
-`source ~/.bash_profile`
-
 #### Config System Timezone
 
 ```
