@@ -10,6 +10,15 @@ Transfer pubkey to VPS:
 
 `scp ~/.ssh/mykey.pub root@hostname:~/.ssh/`
 
+Configure SSH alias to VPS. Open vim in ~/.ssh/config and paste:
+
+```
+Host cryptfolio
+  HostName 45.79.176.125
+  IdentityFile ~/.ssh/SSH_KEY_FILE
+  User root
+```
+
 ## VPS Setup
 
 #### Config vim/bash/tmux
