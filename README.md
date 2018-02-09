@@ -63,7 +63,41 @@ git config --global user.email johndoe@example.com
 
 #### Setup Github SSH Access
 
-1. Go to Github->Settings->SSH & GPG Keys->New SSH Key.
-2. Paste the VPS pubkey and save.
+Go to Github->Settings->SSH & GPG Keys->New SSH Key.
+Paste the VPS pubkey and save.
 
 
+## Setup MongoDB Authentication
+
+Start mongod daemon, open mongo shell and paste:
+
+```
+use admin
+db.createUser({
+    user: "root",  pwd: “PASSWORD_HERE”, 
+  roles: [{"role":"root", "db":"admin"}]
+})
+```
+Copy mongod.conf to /etc
+
+Open /etc/mongod.conf in vim and replace the IP address with the VPS IP:
+
+```
+net:
+  port: 27017
+  bindIp: 127.0.0.1,MY_VPS_IP_ADDRESS
+```
+
+Restart mongod with auth enabled:
+
+`mongod --auth --port 27017 --dbpath /data/db`
+
+Now access mongo shell with auth info:
+
+
+Add aliases in .bashrc:
+
+```
+alias="mongo localhost:27017 -u root -p my_auth_password --authenticationDatabase admin"
+alias="mongod --auth --port 27017 --dbpath /data/dd"
+```
