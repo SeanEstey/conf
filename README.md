@@ -1,4 +1,4 @@
-## Local Machine Setup
+## Local Setup
 
 #### SSH tunnel access
 
@@ -19,7 +19,7 @@ Host cryptfolio
   User root
 ```
 
-## VPS Setup
+## Remote (VPS) Setup
 
 #### Config vim/bash/tmux
 
