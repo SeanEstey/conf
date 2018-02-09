@@ -1,33 +1,46 @@
 # Setup Instructions
 
-#### Update system
+## On Local Machine
+
+### SSH tunnel access
+
+Generate SSH key if not already created:
+
+`ssh-keygen -t rsa`
+
+Transfer pubkey to VPS:
+
+`scp ~/.ssh/mykey.pub root@hostname:~/.ssh/`
+
+## On VPS
+
+#### Config vim/bash/tmux
+
+```
+cp ./{.bashrc,.vimrc,.tmux.conf} ~/
+source ~/.bash_profile
+vim
+:so ~/.vimrc
+tmux source-file ~/.tmux.conf
+```
+
+### Config Bash & Vim
+
+Copy .bash_profile, .bashrc, and .vimrc from /ubuntu in repository root to home (~) directory.
+
+Execute bash config:
+`source ~/.bash_profile`
+
+### Config System Timezone
 
 ```
 apt-get update
 sudo dpkg-reconfigure tzdata
 ```
 
-#### Install packages
+### Setup SSH
 
-```
-apt-get update
-apt-get install git tmux
-```
-
-#### Setup git if not already installed
-
-```
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-```
-
-#### Set-up SSH access
-
-Copy pubkey from remote machine. On remote machine terminal:
-
-`scp ~/.ssh/mykey.pub root@hostname:~/.ssh/`
-
-On local machine, open the transferred ~/.ssh/mykey.pub file in vim, copy key to ~/.ssh/authorized_keys
+Open pubkey transferred from local machine in previous step and copy the key to ~/.ssh/authorized_keys
 
 Remove password authentication for SSH:
 
@@ -41,12 +54,16 @@ Restart SSH service:
 
 `service ssh restart`
 
-#### Config vim/bash/tmux
+### Config Git
 
 ```
-cp ./{.bashrc,.vimrc,.tmux.conf} ~/
-source ~/.bashrc
-vim
-:so ~/.vimrc
-tmux source-file ~/.tmux.conf
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
+
+### Setup Github SSH Access
+
+1. Go to Github->Settings->SSH & GPG Keys->New SSH Key.
+2. Paste the VPS pubkey and save.
+
+
