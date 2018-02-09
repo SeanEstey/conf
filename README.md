@@ -67,6 +67,7 @@ Go to Github->Settings->SSH & GPG Keys->New SSH Key.
 Paste the VPS pubkey and save.
 
 
+
 ## Setup MongoDB Authentication
 
 Start mongod daemon, open mongo shell and paste:
@@ -94,6 +95,7 @@ Restart mongod with auth enabled:
 
 Now access mongo shell with auth info:
 
+`mongo localhost:27017 -u root -p my_auth_password --authenticationDatabase admin`
 
 Add aliases in .bashrc:
 
