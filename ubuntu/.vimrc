@@ -1,35 +1,63 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+""" General
 set mouse=a
-set incsearch
-syntax on
-set encoding=utf-8
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
+set ruler                           " Show current position
+set incsearch                       " Mimic modern browser search
+set autoread                        " Reload file changed from outside
+set magic                           " Reg. expressions turn magic on
+set noerrorbells
+set novisualbell
+set showmatch
+set mat=2
 
+""" Plugins
+let python_highlight_all = 1
+
+""" File Management
+set nobackup
+set nowb
+set noswapfile
+
+""" Kep Mapping
+nnoremap <space> za
 command! E Explore
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set expandtab |
-    \ set softtabstop=0 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set autoindent |
-    \ set fileformat=unix |
+""" Color & Fonts
+syntax enable
+filetype on
+set encoding=utf-8
+highlight BadWhitespace ctermbg=red guibg=darkred
 
-au BufNewFile,BufRead *.js,*.css,*.php
-    \ set tabstop=4 |
-    \ set expandtab |
-    \ set softtabstop=0 |
-    \ set shiftwidth=4 |
-
-au BufNewFile,BufRead *.html
+""" Text/Tab/Indenting
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set fileformat=unix
+au BufNewFile,BufRead *.html        " Custom .html file settings
     \ set tabstop=2 |
     \ set expandtab |
     \ set softtabstop=0 |
     \ set shiftwidth=2 |
 
-highlight BadWhitespace ctermbg=red guibg=darkred
+""" Folding
+set foldmethod=indent
+set foldlevel=99
+
+""" Status line
+set laststatus=2
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+""" Helper Functions
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
+
+""" Macros
+" Highlight whitespace errors (.py files)
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" Go to last edit pos when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
