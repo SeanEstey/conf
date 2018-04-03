@@ -1,11 +1,6 @@
 [[ -s ~/.bashrc ]] && source ~/.bashrc
 [ -z "$PS1" ] && return
 
-# For conflicts w/ python pycurl module
-export CFLAGS="-I$(brew --prefix openssl)/include"
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
-export PYCURL_SSL_LIBRARY=[openssl|gnutls|nss]
-
 # ALIASES
 alias python='python3.5'
 # Run 'brew install coreutils' to install gls.
