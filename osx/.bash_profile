@@ -1,11 +1,6 @@
 [[ -s ~/.bashrc ]] && source ~/.bashrc
 [ -z "$PS1" ] && return
 
-# ALIASES
-alias python='python3.5'
-# Run 'brew install coreutils' to install gls.
-# gls enables --group-directories-first option
-alias ls="gls -al --group-directories-first --color"
 
 function cs() {
   cd "$@" && ls
@@ -36,4 +31,14 @@ function prompt {
 
 prompt
 
+# ALIASES
+alias python='python3.6'
+# Run 'brew install coreutils' to install gls.
+# gls enables --group-directories-first option
+alias ls="gls -al --group-directories-first --color"
 
+
+# Anaconda python3.6 path
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+export PATH="/Users/seanestey/coding/anaconda3/bin:$PATH"
