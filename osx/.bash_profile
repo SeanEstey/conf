@@ -1,10 +1,10 @@
+# .bash_profile - general bash config settings
+# .bashrc - user-specific aliases/settings
+
 [[ -s ~/.bashrc ]] && source ~/.bashrc
 [ -z "$PS1" ] && return
 
-
-function cs() {
-  cd "$@" && ls
-}
+### FUNCTIONS ###
 
 function prompt {
   local BLACK="\[\033[0;30m\]"
@@ -28,17 +28,24 @@ function prompt {
   export PS1="\n$RED\u $PURPLE@ $GREEN\w $RESETCOLOR$GREENBOLD\$(git branch 2> /dev/null)\n $BLUE[\#] → $RESETCOLOR"
   export PS2=" | → $RESETCOLOR"
 }
-
 prompt
 
-# ALIASES
-alias python='python3.6'
+function cs() {
+  cd "$@" && ls
+}
+
+### ALIASES ###
+
+alias python='python3.7'
+
 # Run 'brew install coreutils' to install gls.
 # gls enables --group-directories-first option
+
 alias ls="gls -al --group-directories-first --color"
 
+### PATHS ###
 
-# Anaconda python3.6 path
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
-export PATH="/Users/seanestey/coding/anaconda3/bin:$PATH"
