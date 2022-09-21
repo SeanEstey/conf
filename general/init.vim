@@ -1,4 +1,5 @@
 """ Neovim Config
+""" Place in ~/.config/nvim
 
 """ General
 set nocompatible            " disable compatibility to old-time vi
@@ -29,6 +30,19 @@ set foldlevel=99
 """ Kep Mapping
 nnoremap <space> za
 command! E Explore
+
+""" Plugin Section
+call plug#begin("~/.vim/plugged")
+
+ Plug 'dracula/vim'
+ Plug 'ryanoasis/vim-devicons'
+ Plug 'SirVer/ultisnips'
+ Plug 'honza/vim-snippets'
+ Plug 'scrooloose/nerdtree'
+ Plug 'preservim/nerdcommenter'
+ Plug 'mhinz/vim-startify'
+ "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
 """ Other
 " set cursorline             " highlight current cursorline
